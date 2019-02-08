@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "6c57c0b2-0b41-4060-8ee4-b9268ec522cb",
+		"name": "ACI-Inspector",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"aaaUser\" : {\n    \"attributes\" : {\n      \"name\" : \"{{username}}\",\n      \"pwd\" : \"{{password}}\"\n    }\n  }\n}\n"
+				},
+				"url": {
+					"raw": "https://{{apic}}/api/aaaLogin.json",
+					"protocol": "https",
+					"host": [
+						"{{apic}}"
+					],
+					"path": [
+						"api",
+						"aaaLogin.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display EPGs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apic}}/api/node/mo/uni/tn-FTL-Lab-REY/ap-FTL_Lab_Apps.json?query-target=children&target-subtree-class=fvAEPg&query-target-filter=eq(fvAEPg.isAttrBasedEPg,\"false\")",
+					"protocol": "https",
+					"host": [
+						"{{apic}}"
+					],
+					"path": [
+						"api",
+						"node",
+						"mo",
+						"uni",
+						"tn-FTL-Lab-REY",
+						"ap-FTL_Lab_Apps.json"
+					],
+					"query": [
+						{
+							"key": "query-target",
+							"value": "children"
+						},
+						{
+							"key": "target-subtree-class",
+							"value": "fvAEPg"
+						},
+						{
+							"key": "query-target-filter",
+							"value": "eq(fvAEPg.isAttrBasedEPg,\"false\")"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FaultCount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{apic}}/api/node/class/faultSummary.json?query-target-filter=and()&order-by=faultSummary.severity|desc&page=0&page-size=15",
+					"protocol": "https",
+					"host": [
+						"{{apic}}"
+					],
+					"path": [
+						"api",
+						"node",
+						"class",
+						"faultSummary.json"
+					],
+					"query": [
+						{
+							"key": "query-target-filter",
+							"value": "and()"
+						},
+						{
+							"key": "order-by",
+							"value": "faultSummary.severity|desc"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "page-size",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
