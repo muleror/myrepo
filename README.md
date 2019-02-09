@@ -1,11 +1,13 @@
 #Tools for ACI
 
 Description
+
 This code/tools will allow an Engineer to retrieve data and push data very easy and fast for the ACI Fabric. 
 The user will be accessing an existing fabric for this exercise. The process uses two different methods which are the ACITOOLKIT and POSTMAN. 
 There will be a series of installation to get the system ready for this. The idea is to use various methods toi accomplish this.
 
 Installation
+
 	Install pip
 	Install python
 	Install the requirements.txt = pip install -r requirements.txt
@@ -27,6 +29,7 @@ Usage
 	
 		
 Files
+
 credentials.py - Contains the login credentials REQUIRED to access the ACI Fabric
 ACI-Runner-Tenant-Environment.postman_environment.json - has the correct environment variables to run the scripts from the collection file
 ACI-Inspector.postman_collection.json - collection files which has the items to run
